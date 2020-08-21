@@ -1,0 +1,133 @@
+﻿<Window x:Name="DrawCli" x:Class="DrawCli.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrawCli"
+        mc:Ignorable="d"
+        Title="DrawCli" 
+        Height="800" Width="1200" 
+        Icon="pointer.bmp">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="btn_menu">
+            <Setter Property="Margin" Value="4,0,4,0"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <!--<Setter Property="Opacity" Value="1"/>-->
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2" Background="#cccccc"/>
+        <!--#region Menu Items-->
+        <Menu Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="White">
+
+            <MenuItem Header="File" Margin="5,0,0,5" VerticalAlignment="Center">
+                <MenuItem x:Name="menu_New" Header="New_File" />
+                <MenuItem x:Name="menu_Open" Header="Open File" />
+                <MenuItem x:Name="menu_Save" Header="Save File" />
+                <MenuItem x:Name="menu_Recent" Header="Recent Files" />
+                <MenuItem x:Name="menu_Exit" Header="Exit" />
+            </MenuItem>
+
+            <MenuItem Header="Edit" Margin="5,0,0,5" VerticalAlignment="Center">
+                <MenuItem x:Name="menu_SelectAll" Header="Select All" />
+                <MenuItem x:Name="menu_UnSelectAll" Header="UnSelect All" />
+                <MenuItem x:Name="menu_Back" Header="Back" />
+                <MenuItem x:Name="menu_Forward" Header="Forward" />
+                <MenuItem x:Name="menu_Properties" Header="Properties" />
+            </MenuItem>
+
+            <MenuItem Header="Draw"  Margin="5,0,0,5">
+                <MenuItem x:Name="menu_Line" Header="Line" />
+                <MenuItem x:Name="menu_Rect" Header="Rectangle" />
+                <MenuItem x:Name="menu_Ellipse" Header="Ellipse" />
+                <MenuItem x:Name="menu_Sketch" Header="Sketch" />
+            </MenuItem>
+
+            <MenuItem Header="Help"  Margin="5,0,0,5">
+                <MenuItem x:Name="menu_About" Header="About" />
+            </MenuItem>
+        </Menu>
+        <!--#endregion-->
+
+        <DockPanel Grid.Row="1" VerticalAlignment="Top">
+            <Rectangle Height="1" Stroke="Black"/>
+        </DockPanel>
+        
+        <!--#region Buttons with icon-->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Button x:Name="Btn_New" ToolTip="New File" Style="{StaticResource btn_menu}" >
+                <Image Source="new.png"/>
+            </Button>
+
+            <Button x:Name="Btn_Open" ToolTip="Open File" Style="{StaticResource btn_menu}">
+                <Image Source="open.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Save" ToolTip="Save" Style="{StaticResource btn_menu}">
+                <Image Source="save.bmp" Margin="0"/>
+            </Button>
+
+            <Rectangle VerticalAlignment="Stretch" Width="1" Stroke="Black" Margin="5,0,5,0" />
+
+            <Button x:Name="Btn_Pointer" ToolTip="Pointer" Style="{StaticResource btn_menu}">
+                <Image Source="pointer.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Line" ToolTip="Line" Style="{StaticResource btn_menu}">
+                <Image Source="line.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Rect" ToolTip="Rectangle" Style="{StaticResource btn_menu}">
+                <Image Source="rectangle.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Ellipse" ToolTip="Ellipse" Style="{StaticResource btn_menu}">
+                <Image Source="ellipse.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Sketch" ToolTip="Pencil" Style="{StaticResource btn_menu}">
+                <Image Source="pencil.bmp"/>
+            </Button>
+
+            <Button x:Name="Btn_Properties" ToolTip="Set Properties" Style="{StaticResource btn_menu}">
+                <Image Source="properties_Set.bmp"/>
+            </Button>
+            
+            <Rectangle VerticalAlignment="Stretch" Width="1" Stroke="Black" Margin="10,2,10,2" />
+
+            <Button x:Name="Btn_Help" ToolTip="About" Style="{StaticResource btn_menu}">
+                <Image Source="about.bmp"/>
+            </Button>
+            <Button x:Name="btn_Back" ToolTip="Back" Style="{StaticResource btn_menu}">
+                <Image Source="back.png" />
+            </Button>
+            <Button x:Name="Btn_Forward" ToolTip="Forward" Style="{StaticResource btn_menu}">
+                <Image Source="forward.png" />
+            </Button>
+            <Button x:Name="btn_Clear" ToolTip="Clear" Style="{StaticResource btn_menu}">
+                <Image Source="clr.png" />
+            </Button>
+        </StackPanel>
+        
+        <!--#endregion-->
+        
+        <DockPanel  Grid.Row="3" Margin="5">
+        <Canvas x:Name="MyBoard">
+
+        </Canvas>
+        </DockPanel>
+    </Grid>
+</Window>
